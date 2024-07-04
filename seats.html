@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Travel Agency - Seats</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/seatStyles.css">
+</head>
+
+<body class="light-mode">
+    <!-- <button id="toggle-mode" class="btn btn-secondary">Claro</button> -->
+    <h1>Selección de asientos</h1>
+    <div id="seat-status-legend" class="legend">
+        <div class="legend-item">
+            <button class="seatEconomic" disabled></button>
+            <span>Disponible</span>
+        </div>
+        <div class="legend-item">
+            <button class="seatEconomic reserved" disabled></button>
+            <span>Ocupado</span>
+        </div>
+        <div class="legend-item">
+            <button class="seatEconomic selected" disabled></button>
+            <span>Seleccionado</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" id="seat-map-container">
+                <div id="seat-map">
+                    <!-- Seat map content here -->
+                    <div class="row-label">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                        <span>6</span>
+                        <span>7</span>
+                        <span>8</span>
+                        <span>9</span>
+                        <span>10</span>
+                    </div>
+                    <div class="column" id="col-1">
+                        <button class="seatEconomic" id="A1">A</button>
+                        <button class="seatEconomic" id="A2"></button>
+                        <button class="seatEconomic" id="A3"></button>
+                        <button class="seatEconomic" id="A4"></button>
+                        <button class="seatEconomic" id="A5"></button>
+                        <button class="seatEconomic" id="A6"></button>
+                        <button class="seatEconomic" id="A7"></button>
+                        <button class="seatEconomic" id="A8"></button>
+                        <button class="seatEconomic" id="A9"></button>
+                        <button class="seatEconomic" id="A10"></button>
+                    </div>
+                    <div class="column" id="col-2">
+                        <button class="seatEconomic" id="B1">B</button>
+                        <button class="seatEconomic" id="B2"></button>
+                        <button class="seatEconomic" id="B3"></button>
+                        <button class="seatEconomic" id="B4"></button>
+                        <button class="seatEconomic" id="B5"></button>
+                        <button class="seatEconomic" id="B6"></button>
+                        <button class="seatEconomic" id="B7"></button>
+                        <button class="seatEconomic" id="B8"></button>
+                        <button class="seatEconomic" id="B9"></button>
+                        <button class="seatEconomic" id="B10"></button>
+                    </div>
+                    <div class="column" id="col-3">
+                        <button class="seatEconomic" id="C1">C</button>
+                        <button class="seatEconomic" id="C2"></button>
+                        <button class="seatEconomic" id="C3"></button>
+                        <button class="seatEconomic" id="C4"></button>
+                        <button class="seatEconomic" id="C5"></button>
+                        <button class="seatEconomic" id="C6"></button>
+                        <button class="seatEconomic" id="C7"></button>
+                        <button class="seatEconomic" id="C8"></button>
+                        <button class="seatEconomic" id="C9"></button>
+                        <button class="seatEconomic" id="C10"></button>
+                    </div>
+                    <div class="column" id="col-4">
+                        <button class="seatEconomic" id="D1">D</button>
+                        <button class="seatEconomic" id="D2"></button>
+                        <button class="seatEconomic" id="D3"></button>
+                        <button class="seatEconomic" id="D4"></button>
+                        <button class="seatEconomic" id="D5"></button>
+                        <button class="seatEconomic" id="D6"></button>
+                        <button class="seatEconomic" id="D7"></button>
+                        <button class="seatEconomic" id="D8"></button>
+                        <button class="seatEconomic" id="D9"></button>
+                        <button class="seatEconomic" id="D10"></button>
+                    </div>
+                    <div class="column" id="col-5">
+                        <button class="seatEconomic" id="E1">E</button>
+                        <button class="seatEconomic" id="E2"></button>
+                        <button class="seatEconomic" id="E3"></button>
+                        <button class="seatEconomic" id="E4"></button>
+                        <button class="seatEconomic" id="E5"></button>
+                        <button class="seatEconomic" id="E6"></button>
+                        <button class="seatEconomic" id="E7"></button>
+                        <button class="seatEconomic" id="E8"></button>
+                        <button class="seatEconomic" id="E9"></button>
+                        <button class="seatEconomic" id="E10"></button>
+                    </div>
+                    <div class="column" id="col-6">
+                        <button class="seatEconomic" id="F1">F</button>
+                        <button class="seatEconomic" id="F2"></button>
+                        <button class="seatEconomic" id="F3"></button>
+                        <button class="seatEconomic" id="F4"></button>
+                        <button class="seatEconomic" id="F5"></button>
+                        <button class="seatEconomic" id="F6"></button>
+                        <button class="seatEconomic" id="F7"></button>
+                        <button class="seatEconomic" id="F8"></button>
+                        <button class="seatEconomic" id="F9"></button>
+                        <button class="seatEconomic" id="F10"></button>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button id="reserve-selected" class="btn btn-primary mt-5">Reservar seleccionados</button>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="accordion" id="accordionReservations">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Reserva -->
+    <div class="modal fade" id="reservation-modal" tabindex="-1" aria-labelledby="reservationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reservationModalLabel">Información de la reserva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form">
+                        <input type="hidden" id="seat-id">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <script>
+                            //validar que el nombre y apellido no contengan números
+                            // que si el usuario ingrese un numero, no se refleje en el input
+                            // solo se permite ingresar letras y espacios   
+                            document.getElementById("name").addEventListener("input", function () {
+                                var name = this.value;
+                                var namePattern = /^[a-zA-Z\s]*$/;
+                                if (!namePattern.test(name)) {
+                                    this.value = name.slice(0, -1);
+                                }
+                            });
+                        </script>
+                        
+                        <div class="mb-3">
+                            <label for="nacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="nacimiento" required>
+                        </div>
+                        <script>
+                            // validar fecha de nacimiento que sea mayor a la fecha actual
+                            // si no es mayor a la fecha actual, se muestra un mensaje de error
+                            document.getElementById("nacimiento").addEventListener("change", function () {
+                                var fechaNacimiento = new Date(this.value);
+                                var fechaActual = new Date();
+                                if (fechaNacimiento > fechaActual) {
+                                    alert("La fecha de nacimiento no puede ser mayor a la fecha actual");
+                                    this.value = "";
+                                }
+                            });
+                        </script>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label"> Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        
+                        </div>
+                        <div class="mb-3">
+                            <label for="paisEmision" class="form-label">País de Emisión</label>
+                            <select id="paisEmision" name="paisEmision" class="form-control" required>
+                                <option value="EEUU">EEUU</option>
+                                <option value="España">España</option>
+                                <option value="México">México</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Chile">Chile</option>
+                                <option value="Venezuela">Venezuela</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Perú">Perú</option>
+                                <option value="Brasil">Brasil</option>
+                                <option value="Alemania">Alemania</option>
+                                <option value="Italia">Italia</option>
+                                <option value="Francia">Francia</option>
+                                <option value="Japón">Japón</option>
+                                <option value="China">China</option>
+                                <option value="India">India</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Sudáfrica">Sudáfrica</option>
+                                <option value="Rusia">Rusia</option>
+                                <option value="Corea del sur">Corea del sur</option>
+                                <option value="Turquía">Turquía</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Países Bajos">Países Bajos</option>
+                                <option value="Egipto">Egipto</option>
+                                <option value="Costa rica">Costa rica</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Kenia">Kenia</option>
+                                <option value="Marruecos">Marruecos</option>
+                                <option value="Argelia">Argelia</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Camerún">Camerún</option>
+                                <option value="Costa de Marfil">Costa de Marfil</option>
+                                <option value="Senegal">Senegal</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="Sudán">Sudán</option>
+                                <option value="Libia">Libia</option>
+                                <option value="Túnez">Túnez</option>
+                                
+                            </select>
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="numPasaporte" class="form-label">Número de Pasaporte</label>
+                            <input type="text" class="form-control" id="numPasaporte" required>
+                        </div>
+
+                        <script>
+                            // validar que solo me deje ingresar numeros
+                            // si ingresa un espacio o una letra no se refleja en el input
+                            // no me permita escribir muchos numeros, solo 9 como maximo
+                            document.getElementById("numPasaporte").addEventListener("input", function () {
+                                var numPasaporte = this.value;
+                                var numPasaportePattern = /^[0-9]*$/;
+                                if (!numPasaportePattern.test(numPasaporte)) {
+                                    this.value = numPasaporte.slice(0, -1);
+                                }
+                                if (numPasaporte.length > 9) {
+                                    this.value = numPasaporte.slice(0, 9);
+                                }
+                            });
+                        </script>
+
+
+                        
+                        <div class="mb-3">
+                            <label for="vencimientoPasaporte" class="form-label">Vencimiento de Pasaporte</label>
+                            <input type="date" class="form-control" id="vencimientoPasaporte" required>
+                        </div>
+                        <script>
+                            // validar que el pasaporte no esté vencido
+                            // si está vencido, se muestra un mensaje de error
+                            document.getElementById("vencimientoPasaporte").addEventListener("change", function () {
+                                var fechaVencimiento = new Date(this.value);
+                                var fechaActual = new Date();
+                                if (fechaVencimiento < fechaActual) {
+                                    alert("El pasaporte está vencido");
+                                    this.value = "";
+                                }
+                            });
+                        </script>
+                        <div class="mb-3">
+                            <label for="sexo" class="form-label">Sexo</label>
+                            <select class="form-control" id="sexo" required>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="services" class="form-label">Servicios:</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="hand-luggage" value="hand-luggage" style="background-color: #a6a6a6">
+                                <label class="form-check-label" for="hand-luggage">Maleta de mano (sin costo adicional)</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="checked-luggage" 
+                                    value="checked-luggage" style="background-color: #a6a6a6">
+                                <label class="form-check-label" for="checked-luggage">Maleta de bodega (sin costo adicional) </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="extra-checked-luggage"
+                                    value="extra-checked-luggage" style="background-color: #a6a6a6">
+                                <label class="form-check-label" for="extra-checked-luggage">Maleta de bodega extra
+                                    (+$50)</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="extrados-checked-luggage"
+                                    value="extrados-checked-luggage" style="background-color: #a6a6a6">
+                                <label class="form-check-label" for="extra2-checked-luggage">Maleta de mano extra
+                                    (+$25)</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="wifi" value="wifi" style="background-color: #a6a6a6">
+                                <label class="form-check-label" for="wifi">Wifi Avión (+$30)</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="total-price" id="total-price" class="form-label">Precio total: $300</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="reserve-btn">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Facturación -->
+    <div class="modal fade" id="billing-modal" tabindex="-1" aria-labelledby="billingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-content-billing">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="billingModalLabel">Pago y facturación (SOLO TARJETA VISA) </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="billing-form">
+
+                        <div class="mb-3">
+                            <label for="billing-name" class="form-label">Nombre del tarjetahabiente</label>
+                            <input type="text" class="form-control" id="billing-name" required>
+                        </div>
+                        <script>
+                            //validar que el nombre y apellido no contengan números
+                            // que si el usuario ingrese un numero, no se refleje en el input
+                            // solo se permite ingresar letras y espacios   
+                            document.getElementById("billing-name").addEventListener("input", function () {
+                                var name = this.value;
+                                var namePattern = /^[a-zA-Z\s]*$/;
+                                if (!namePattern.test(name)) {
+                                    this.value = name.slice(0, -1);
+                                }
+                            });
+                        </script>
+                        <div class="mb-3">
+                            <label for="billing-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="billing-email" required>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="countryCode" class="form-label">Código del país para número
+                                    telefónico</label>
+                                <select id="countryCode" name="countryCode" class="form-control" required>
+                                    <option value="+1">+1 (EE.UU. / Canadá)</option>
+                                    <option value="+34">+34 (España)</option>
+                                    <option value="+52">+52 (México)</option>
+                                    <option value="+54">+54 (Argentina)</option>
+                                    <option value="+56">+56 (Chile)</option>
+                                    <option value="+58">+58 (Venezuela)</option>
+                                    <option value="+593">+593 (Ecuador)</option>
+                                    <option value="+57">+57 (Colombia)</option>
+                                    <option value="+51">+51 (Perú) </option>
+                                    <option value="+55">+55 (Brasil)</option>
+                                    <option value="+49">+49 (Alemania)</option>
+                                    <option value="+39">+39 (Italia)</option>
+                                    <option value="+33">+33 (Francia)</option>
+                                    <option value="+81">+81 (Japón)</option>
+                                    <option value="+86">+86 (China)</option>
+                                    <option value="+91">+91 (India)</option>
+                                    <option value="+61">+61 (Australia)</option>
+                                    <option value="+27">+27 (Sudáfrica)</option>
+                                    <option value="+7">+7 (Rusia)</option>
+                                    <option value="+82"> +82 (Corea del sur)</option>
+                                    <option value="+90"> +90 (Turquía)</option>
+                                    <option value="+351"> +351 (Portugal) </option>
+                                    <option value="+31"> +31 (Países Bajos)</option>
+                                    <option value="+20">+20 (Egipto)</option>
+                                    <option value="+508">+508 (Costa rica)</option>
+                                    <option value="+234">+234 (Nigeria)</option>
+                                    <option value="+254">+254 (Kenia)</option>
+                                    <option value="+212">+212 (Marruecos)</option>
+                                    <option value="+213">+213 (Argelia)</option>
+                                    <option value="+256">+256 (Uganda)</option>
+                                    <option value="+233">+233 (Ghana)</option>
+                                    <option value="+237">+237 (Camerún)</option>
+                                    <option value="+225">+225 (Costa de Marfil)</option>
+                                    <option value="+221">+221 (Senegal)</option>
+                                    <option value="+255">+255 (Tanzania)</option>
+                                    <option value="+249">+249 (Sudán)</option>
+                                    <option value="+218">+218 (Libia)</option>
+                                    <option value="+216">+216 (Túnez)</option>
+                                </select>
+                        <div class="mb-3">
+                            <label for="billing-phone" class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" id="billing-phone" oninput="validateNumber(this)" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="billing-address" class="form-label">Dirección de Residencia</label>
+                            <input type="text" class="form-control" id="billing-address" required>
+                        </div>
+                        <script>
+                            // validar la direccion de residencia 
+                            // que me permita ingresar la ñ y la Ñ
+                            // no me permita ingresar caracteres especiales, solamente la , y el espacio
+                            document.getElementById("billing-address").addEventListener("input", function () {
+                                var address = this.value;
+                                var addressPattern = /^[a-zA-Z0-9\s,ñÑ]*$/;
+                                if (!addressPattern.test(address)) {
+                                    this.value = address.slice(0, -1);
+                                }
+                            });
+                        </script>
+                        <div class="mb-3">
+                            <label for="card-number" class="form-label">Número de Tarjeta</label>
+                            <input type="text" class="form-control" id="card-number" required>
+                        </div>
+                        <script>
+                            // validar que para el numero de tarjeta, solo se permitan numeros, sin espacios ni nada mas
+                            // que la longitud corresponda al numero de tarjeta, es decir,  16 digitos, si tiene menos lanza una alerta cuando se envie el formulario
+                            document.getElementById("card-number").addEventListener("input", function () {
+                                var cardNumber = this.value;
+                                var cardNumberPattern = /^[0-9]*$/;
+                                if (!cardNumberPattern.test(cardNumber)) {
+                                    this.value = cardNumber.slice(0, -1);
+                                }
+                                if (cardNumber.length > 16) {
+                                    this.value = cardNumber.slice(0, 16);
+                                }
+                            });
+
+                            
+                        </script>
+                        <div class="mb-3">
+                            <label for="card-expiry" class="form-label">Fecha de Expiración de la tarjeta</label>
+                            <input type="date" class="form-control" id="card-expiry" required>
+                        </div>
+                        <script>
+                            // validar que la fecha de expiracion de la tarjeta sea mayor a la fecha actual
+                            // si no es mayor a la fecha actual, se muestra un mensaje de error
+                            document.getElementById("card-expiry").addEventListener("change", function () {
+                                var fechaExpiracion = new Date(this.value);
+                                var fechaActual = new Date();
+                                if (fechaExpiracion < fechaActual) {
+                                    alert("La tarjeta está vencida");
+                                    this.value = "";
+                                }
+                            });
+                        </script>
+                        <div class="mb-3">
+                            <label for="card-cvc" class="form-label">CVC</label>
+                            <input type="text" class="form-control" id="card-cvc" required>
+                        </div>
+                        <script>
+                            // validar el cvc de la tarjeta, que corresponda a la estructura de 3 digitos
+                            // si no corresponde, se muestra un mensaje de error
+                            document.getElementById("card-cvc").addEventListener("input", function () {
+                                var cardCvc = this.value;
+                                var cardCvcPattern = /^[0-9]*$/;
+                                if (!cardCvcPattern.test(cardCvc)) {
+                                    this.value = cardCvc.slice(0, -1);
+                                }
+                                if (cardCvc.length > 3) {
+                                    this.value = cardCvc.slice(0, 3);
+                                }
+                            });
+
+                        </script>
+                        <div class="mb-3">
+                            <label for="total-amount" class="form-label">Total a pagar</label>
+                            <input type="text" class="form-control" id="total-amount" readonly>
+                        </div>
+                        <div>
+                            <label for="nota">Nota: Una vez confirme su boleto se enviará a su correo electrónico. Tiene 24h para cancelar el vuelo</label>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="billing-submit">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="scripts/seatsScript.js"></script>
+</body>
+
+</html>

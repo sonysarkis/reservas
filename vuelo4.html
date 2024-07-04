@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/descripcion.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class = "descripcion">
+        <h1>
+            Vuelo de Colombia a Republica Dominicana
+        </h1>
+        <img src="img/caracas.jpg">
+        
+        <p class="enGc">En GC Aerolínea, nos esforzamos por ofrecerles el mejor servicio posible y 
+            la mayor variedad de opciones para sus viajes. Actualmente, debido a la 
+            reestructuración de nuestras rutas, 
+            nuestras tarifas de vuelo para la clase Business no están disponibles temporalmente.
+        </p>
+        <p class="sinEmb">Sin embargo, estamos comprometidos a proporcionarles excelentes tarifas en nuestra clase Económica, con un 
+        costo de 300$ por persona (todas las edades), que incluye equipaje de mano. 
+        Pero debido a que no podemos ofrecer la clase business a nuestros usuarios, 
+        mientras solucionamos la reestructuración de rutas, 
+        ¡podrás llevar una (1) maleta de bodega completamente gratis! 
+        Nota: (8kg por equipaje de mano y 23kg por maleta de bodega, el sobrepeso se paga presencialmente en el aeropuerto),</p>
+        <p class="agra">Agradecemos su comprensión y esperamos poder ofrecerle pronto la gama completa de 
+            nuestras tarifas.
+            Gracias por elegir volar con la Aerolínea GC
+        </p>
+
+        <p>Elija su fecha de salida</p>
+<div class="Fechas">
+  <div class="col-md-4 form-group mt-3">
+    <input type="date" name="date" class="form-control" id="dateInput">
+    <div class="validate"></div>
+  </div>
+  <p class="regreso">Elija su fecha de regreso</p>
+  <div class="col-md-4 form-group mt-3">
+    <input type="date" name="date" class="form-control" id="dateInput2">
+    <div class="validate"></div>
+  </div>
+  <script>
+    const dateInput = document.getElementById('dateInput');
+    const dateInput2 = document.getElementById('dateInput2');
+    const hoy = new Date();
+    const yyyy = hoy.getFullYear();
+    const mm = String(hoy.getMonth() + 1).padStart(2, '0');
+    const dd = String(hoy.getDate()).padStart(2, '0');
+    dateInput.value = `${yyyy}-${mm}-${dd}`;
+    dateInput.min = `${yyyy}-${mm}-${dd}`;
+
+    dateInput.addEventListener('input', () => {
+      const fechaSeleccionada = new Date(dateInput.value);
+      const fechaMinima = new Date(fechaSeleccionada.getTime() + 86400000); // agregar 1 día a la fecha de salida
+      dateInput2.min = fechaMinima.toISOString().split('T')[0]; // establecer la fecha mínima para dateInput2
+      dateInput2.value = ''; // restablecer el valor de dateInput2
+    });
+  </script>
+</div>
+        <p>Vuelos disponibles</p>
+        <div class = "hora">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                  10:00 Am
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                <label class="form-check-label" for="flexRadioDefault2">
+                  13:00 Pm
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  18:00 Pm
+                </label>
+              </div>
+        </div>
+        <a class="btn btn-primary" href="seats.html" role="button">Reservar</a>
+    </div>
+</body> 
